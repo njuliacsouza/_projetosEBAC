@@ -9,3 +9,8 @@
  </p>
  
  <h2> BÔNUS: Introdução ao Python </h2>
+ 
+ <p>
+  <li> Atividade Módulo 1 - Variáveis e tipos de dados </li>
+  <li> Atividade Módulo 2 - Estruturas de dados </li>
+ </p>
