@@ -8,7 +8,7 @@
   <li> Atividade Módulo 4.1  2 e 3 - Introdução ao Pandas e carga de dados </li>
  </p>
  
- <h2> BÔNUS: Introdução ao Python </h2>
+ <h2> BÔNUS: Introdução ao Python para Análise de Dados</h2>
  
  <p>
   <li> Atividade Módulo 1 - Variáveis e tipos de dados </li>
