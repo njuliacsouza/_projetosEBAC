@@ -6,6 +6,7 @@
   <li> Atividade Módulo 3.1 - Elementos básicos de Python</li>
   <li> Atividade Módulo 3.2 - O pacote Numpy </li>
   <li> Atividade Módulo 4.1  2 e 3 - Introdução ao Pandas e carga de dados </li>
+  <li> Atividade Módulo 4.4 e 5 - DataFrames </li>
  </p>
  
  <h2> BÔNUS: Introdução ao Python para Análise de Dados</h2>
