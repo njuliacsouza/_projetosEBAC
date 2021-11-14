@@ -18,4 +18,4 @@
   <li> Módulo 4 - Arquivos & Funções</li>
 </p>
 
-![Escola Britânica de Artes Criativas e Tecnologia](https://ebac.art.br/local/templates/brazil/i/brazil_logo_black_port.png)
+![Escola Britânica de Artes Criativas e Tecnologia](ebac_logo.png)
