@@ -1,4 +1,5 @@
-<h1 align='center'> Atividades para Curso EBAC </h1>
+<h1 align='center'> Atividades para Cursos EBAC </h1>
+
 
 <h2> Profissão: Cientista de Dados </h2>
 <p>
@@ -16,3 +17,5 @@
   <li> Módulo 3 - Fluxo condicional & repetição</li>
   <li> Módulo 4 - Arquivos & Funções</li>
 </p>
+
+![Escola Britânica de Artes Criativas e Tecnologia](https://ebac.art.br/local/templates/brazil/i/brazil_logo_black_port.png)
