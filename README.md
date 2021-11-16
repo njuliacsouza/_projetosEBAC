@@ -16,6 +16,9 @@
   <li> Módulo 2 - Estruturas de Dados</li>
   <li> Módulo 3 - Fluxo condicional & repetição</li>
   <li> Módulo 4 - Arquivos & Funções</li>
+  <li> Módulo 5 - Programação Funcional</li>
+  <li> Módulo 6 - Programação Orientada a Objetos</li>
+  <li> Módulo 7 - Módulos e Pacotes</li>
 </p>
 
 ![Escola Britânica de Artes Criativas e Tecnologia](ebac_logo.png)
