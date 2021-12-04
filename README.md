@@ -7,7 +7,10 @@
   <li> Módulo 2 - Metodologia</li>
   <li> Módulo 3a - Elementos básicos de Python e Numpy</li>
   <li> Módulo 3b - Elementos básicos de Python e Numpy</li>
-  <li> Módulo 4 - Introdução ao Pandas e carga de dados</li>
+  <li> Módulo 4a - Introdução ao Pandas e carga de dados</li>
+  <li> Módulo 4b - Introdução ao Pandas e carga de dados</li>
+  <li> Módulo 4c - Introdução ao Pandas e carga de dados</li>
+  <li> Módulo 5 - Tratemento de Erros</li>
 </p>
 <h2> Bônus: Python para Análise de Dados </h2>
 <p>
