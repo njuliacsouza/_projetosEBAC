@@ -8,7 +8,7 @@
   <li> Módulo 3 - Elementos básicos de Python e Numpy</li>
   <li> Módulo 4 - Introdução ao Pandas e carga de dados</li>
   <li> Módulo 5 - Limpeza e tratamento de dados</li>
-  <li> Módulo 6 - Descritiva I</li>
+  <li> Módulo 6 - Descritiva I </li>
 </p>
 <h2> Bônus: Python para Análise de Dados </h2>
 <p>
