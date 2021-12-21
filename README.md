@@ -5,12 +5,10 @@
 <p>
   <li> Módulo 1 - Perspectivas de Carreira</li>
   <li> Módulo 2 - Metodologia</li>
-  <li> Módulo 3a - Elementos básicos de Python e Numpy</li>
-  <li> Módulo 3b - Elementos básicos de Python e Numpy</li>
-  <li> Módulo 4a - Introdução ao Pandas e carga de dados</li>
-  <li> Módulo 4b - Introdução ao Pandas e carga de dados</li>
-  <li> Módulo 4c - Introdução ao Pandas e carga de dados</li>
-  <li> Módulo 5 - Tratemento de Erros</li>
+  <li> Módulo 3 - Elementos básicos de Python e Numpy</li>
+  <li> Módulo 4 - Introdução ao Pandas e carga de dados</li>
+  <li> Módulo 5 - Limpeza e tratamento de dados</li>
+  <li> Módulo 6 - Descritiva I </li>
 </p>
 <h2> Bônus: Python para Análise de Dados </h2>
 <p>
@@ -22,6 +20,9 @@
   <li> Módulo 5 - Programação Funcional</li>
   <li> Módulo 6 - Programação Orientada a Objetos</li>
   <li> Módulo 7 - Módulos e Pacotes</li>
+  <li> Módulo 8 - Tratamento de erros </li>
+  <li> Módulo 9 - Scripting </li>
+  <li> Módulo 10 - Projeto Final </li>
 </p>
 
 ![Escola Britânica de Artes Criativas e Tecnologia](ebac_logo.png)
