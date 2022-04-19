@@ -12,19 +12,6 @@
   <li> Módulo 7 - Árvores I </li>
   <li> Módulo 8 - Git/Github </li>
 </p>
-<h2> Bônus: Python para Análise de Dados </h2>
-<p>
-  <li> Módulo 0 - Introdução</li>
-  <li> Módulo 1 - Variáveis & Tipos de Dados</li>
-  <li> Módulo 2 - Estruturas de Dados</li>
-  <li> Módulo 3 - Fluxo condicional & repetição</li>
-  <li> Módulo 4 - Arquivos & Funções</li>
-  <li> Módulo 5 - Programação Funcional</li>
-  <li> Módulo 6 - Programação Orientada a Objetos</li>
-  <li> Módulo 7 - Módulos e Pacotes</li>
-  <li> Módulo 8 - Tratamento de erros </li>
-  <li> Módulo 9 - Scripting </li>
-  <li> Módulo 10 - Projeto Final </li>
-</p>
+
 
 ![Escola Britânica de Artes Criativas e Tecnologia](ebac_logo.png)
