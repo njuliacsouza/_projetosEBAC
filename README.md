@@ -9,6 +9,8 @@
   <li> Módulo 4 - Introdução ao Pandas e carga de dados</li>
   <li> Módulo 5 - Limpeza e tratamento de dados</li>
   <li> Módulo 6 - Descritiva I </li>
+  <li> Módulo 7 - Árvores I </li>
+  <li> Módulo 8 - Git/Github </li>
 </p>
 <h2> Bônus: Python para Análise de Dados </h2>
 <p>
