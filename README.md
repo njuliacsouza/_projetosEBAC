@@ -11,6 +11,8 @@
   <li> Módulo 6 - Descritiva I </li>
   <li> Módulo 7 - Árvores I </li>
   <li> Módulo 8 - Git/Github </li>
+  <li> Módulo 9 - Agregações e operações em grupos </li>
+  <li> Módulo 10 - Análise descritiva para resposta contínua </li>
 </p>
 
 
