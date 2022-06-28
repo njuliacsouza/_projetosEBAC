@@ -14,7 +14,8 @@
   <li> Módulo 9 - Agregações e operações em grupos </li>
   <li> Módulo 10 - Análise descritiva para resposta contínua </li>
   <li> Módulo 11 - Árvores de regressão </li>
-  <li> Módulo 12 - Árvores I </li>
+  <li> Módulo 12 - Árvores I (regressão com Patsy) </li>
+  <li> Módulo 13 - Regressão II </li>
 </p>
 
 
