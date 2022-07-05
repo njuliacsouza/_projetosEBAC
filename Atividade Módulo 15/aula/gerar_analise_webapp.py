@@ -3,6 +3,8 @@ import os
 import matplotlib.pyplot as plt
 import streamlit as st
 
+st.set_page_config(layout='wide')
+
 meses = ['JAN']
 
 months = {
@@ -58,16 +60,23 @@ def plota_variaveis():
 
     sinasc = sinasc[(sinasc.DTNASC <= data_final) & (sinasc.DTNASC >= data_inicial)]
 
+    st.write('#### Quantidade de nascimentos de acordo com a data')
     plota_pivot_table(sinasc, 'IDADEMAE', 'DTNASC', 'count', 'quantidade de nascimento', 'data de nascimento')
-    
+
+    st.write('#### Idade da mâe de acordo com a data de nascimento (por sexo)')
     plota_pivot_table(sinasc, 'IDADEMAE', ['DTNASC', 'SEXO'], 'mean', 'media idade mae', 'data de nascimento',
                       'unstack')
+
+    st.write('#### Média do peso do bebê conforme a data de nascimento')
     plota_pivot_table(sinasc, 'PESO', ['DTNASC', 'SEXO'], 'mean', 'media peso bebe', 'data de nascimento', 'unstack')
-    
+
+    st.write('#### APGAR1 média de acordo com a escolaridade da mãe')
     plota_pivot_table(sinasc, 'PESO', 'ESCMAE', 'median', 'apgar1 medio', 'gestacao', 'sort')
     
+    st.write('#### APGAR1 média de acordo com a gestação')
     plota_pivot_table(sinasc, 'APGAR1', 'GESTACAO', 'mean', 'apgar1 medio', 'gestacao', 'sort')
     
+    st.write('#### APGAR15 média de acordo com a gestação')
     plota_pivot_table(sinasc, 'APGAR5', 'GESTACAO', 'mean', 'apgar5 medio', 'gestacao', 'sort')
 
 plota_variaveis()
