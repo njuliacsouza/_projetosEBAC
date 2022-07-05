@@ -3,7 +3,10 @@ import os
 import matplotlib.pyplot as plt
 import streamlit as st
 
-st.set_page_config(layout='wide')
+st.set_page_config(page_title='SINASC Rondônia',
+                    layout='wide', 
+                    page_icon='https://img.freepik.com/vetores-gratis/bebe-dos-desenhos-animados-dormindo-em-uma-nuvem_61878-363.jpg'
+                )
 
 meses = ['JAN']
 
@@ -52,8 +55,8 @@ def plota_variaveis():
     datas = sinasc.DTNASC.unique()
     datas.sort()
         
-    data_inicial = pd.to_datetime(st.date_input('Defina a data inicial: ', value=min_data, min_value=min_data,  max_value=max_data))
-    data_final = pd.to_datetime(st.date_input('Defina a data final: ', value=min_data, min_value=min_data,  max_value=max_data))
+    data_inicial = pd.to_datetime(st.sidebar.date_input('Defina a data inicial: ', value=min_data, min_value=min_data,  max_value=max_data))
+    data_final = pd.to_datetime(st.sidebar.date_input('Defina a data final: ', value=max_data, min_value=min_data,  max_value=max_data))
 
     st.write('Data inicial = ',data_inicial)
     st.write('Data final = ',data_final)
