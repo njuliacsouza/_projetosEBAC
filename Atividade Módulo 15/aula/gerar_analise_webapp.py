@@ -33,39 +33,43 @@ def plota_pivot_table(df, value, index, func, ylabel, xlabel, opcao='nada'):
                        aggfunc=func).unstack().plot(figsize=[15, 5])
     plt.ylabel(ylabel)
     plt.xlabel(xlabel)
-    st.pyployt()
+    st.pyplot(fig=plt)
     return None
 
-def plota_variaveis(mes):
-    MonthlyAnalysis(mes) # cria o dataset a partir de SINASC_RO_2019.csv
+def plota_variaveis():
+    #MonthlyAnalysis(mes) # cria o dataset a partir de SINASC_RO_2019.csv
 
-    sinasc = pd.read_csv(f'./input/SINASC_RO_2019_{mes}.csv')
-    print(sinasc.DTNASC.min(), sinasc.DTNASC.max())
+    st.write('# Análise SINASC')
 
-    max_data = sinasc.DTNASC.max()[:7]
-    print(max_data)
-    os.makedirs('./output/figs/' + max_data, exist_ok=True)
+    sinasc = pd.read_csv(f'./input/SINASC_RO_2019.csv')
+    sinasc.DTNASC = pd.to_datetime(sinasc.DTNASC)
+    
+    min_data = sinasc.DTNASC.min()
+    max_data = sinasc.DTNASC.max()
+
+    datas = sinasc.DTNASC.unique()
+    datas.sort()
+        
+    data_inicial = pd.to_datetime(st.date_input('Defina a data inicial: ', value=min_data, min_value=min_data,  max_value=max_data))
+    data_final = pd.to_datetime(st.date_input('Defina a data final: ', value=min_data, min_value=min_data,  max_value=max_data))
+
+    st.write('Data inicial = ',data_inicial)
+    st.write('Data final = ',data_final)
+
+    sinasc = sinasc[(sinasc.DTNASC <= data_final) & (sinasc.DTNASC >= data_inicial)]
 
     plota_pivot_table(sinasc, 'IDADEMAE', 'DTNASC', 'count', 'quantidade de nascimento', 'data de nascimento')
-    plt.savefig('./output/figs/' + max_data + '/quantidade de nascimento.png')
-
+    
     plota_pivot_table(sinasc, 'IDADEMAE', ['DTNASC', 'SEXO'], 'mean', 'media idade mae', 'data de nascimento',
                       'unstack')
-    plt.savefig('./output/figs/' + max_data + '/media idade mae por sexo.png')
-
     plota_pivot_table(sinasc, 'PESO', ['DTNASC', 'SEXO'], 'mean', 'media peso bebe', 'data de nascimento', 'unstack')
-    plt.savefig('./output/figs/' + max_data + '/media peso bebe por sexo.png')
-
+    
     plota_pivot_table(sinasc, 'PESO', 'ESCMAE', 'median', 'apgar1 medio', 'gestacao', 'sort')
-    plt.savefig('./output/figs/' + max_data + '/media apgar1 por escolaridade mae.png')
-
+    
     plota_pivot_table(sinasc, 'APGAR1', 'GESTACAO', 'mean', 'apgar1 medio', 'gestacao', 'sort')
-    plt.savefig('./output/figs/' + max_data + '/media apgar1 por gestacao.png')
-
+    
     plota_pivot_table(sinasc, 'APGAR5', 'GESTACAO', 'mean', 'apgar5 medio', 'gestacao', 'sort')
-    plt.savefig('./output/figs/' + max_data + '/media apgar5 por gestacao.png')
 
-for mes in meses:
-    plota_variaveis(mes)
+plota_variaveis()
 
 
