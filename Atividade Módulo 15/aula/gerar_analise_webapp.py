@@ -1,10 +1,9 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+import streamlit as st
 
-import sys
-
-meses = sys.argv[1:]
+meses = ['JAN']
 
 months = {
     'JAN': 1,    'FEV': 2,    'MAR': 3,
@@ -34,6 +33,7 @@ def plota_pivot_table(df, value, index, func, ylabel, xlabel, opcao='nada'):
                        aggfunc=func).unstack().plot(figsize=[15, 5])
     plt.ylabel(ylabel)
     plt.xlabel(xlabel)
+    st.pyployt()
     return None
 
 def plota_variaveis(mes):
