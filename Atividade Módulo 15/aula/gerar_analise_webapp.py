@@ -58,8 +58,8 @@ def plota_variaveis():
     data_inicial = pd.to_datetime(st.sidebar.date_input('Defina a data inicial: ', value=min_data, min_value=min_data,  max_value=max_data))
     data_final = pd.to_datetime(st.sidebar.date_input('Defina a data final: ', value=max_data, min_value=min_data,  max_value=max_data))
 
-    st.write('Data inicial = ',data_inicial)
-    st.write('Data final = ',data_final)
+    st.sidebar.write('Data inicial = ',data_inicial)
+    st.sidebar.write('Data final = ',data_final)
 
     sinasc = sinasc[(sinasc.DTNASC <= data_final) & (sinasc.DTNASC >= data_inicial)]
 
