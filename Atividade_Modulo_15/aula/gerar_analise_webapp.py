@@ -19,7 +19,7 @@ months = {
 
 def MonthlyAnalysis(month: str):
     print(month)
-    sinasc = pd.read_csv('./input/SINASC_RO_2019.csv', parse_dates=['DTNASC'])
+    sinasc = pd.read_csv('SINASC_RO_2019.csv', parse_dates=['DTNASC'])
     sinasc = sinasc[sinasc['DTNASC'].dt.month == months[month]]
     sinasc = sinasc[['IDADEMAE', 'SEXO', 'APGAR1', 'APGAR5', 'PESO', 'CONSULTAS', 'DTNASC', 'GESTACAO', 'GRAVIDEZ', 'ESCMAE', 'IDADEPAI']]
     sinasc = sinasc.reset_index(drop=True)
@@ -46,7 +46,7 @@ def plota_variaveis():
 
     st.write('# Análise SINASC')
 
-    sinasc = pd.read_csv(f'./input/SINASC_RO_2019.csv')
+    sinasc = pd.read_csv(f'SINASC_RO_2019.csv')
     sinasc.DTNASC = pd.to_datetime(sinasc.DTNASC)
     
     min_data = sinasc.DTNASC.min()
