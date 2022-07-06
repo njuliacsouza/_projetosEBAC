@@ -14,22 +14,6 @@ path_to_file = Path(__file__).parents[0] / 'SINASC_RO_2019.csv'
 
 meses = ['JAN']
 
-months = {
-    'JAN': 1,    'FEV': 2,    'MAR': 3,
-    'ABR': 4,    'MAI': 5,    'JUN': 6,
-    'JUL': 7,    'AGO': 8,    'SET': 9,
-    'OUT': 10,    'NOV': 11,    'DEZ': 12
-}
-
-def MonthlyAnalysis(month: str):
-    print(month)
-    sinasc = pd.read_csv(path_to_file, parse_dates=['DTNASC'])
-    sinasc = sinasc[sinasc['DTNASC'].dt.month == months[month]]
-    sinasc = sinasc[['IDADEMAE', 'SEXO', 'APGAR1', 'APGAR5', 'PESO', 'CONSULTAS', 'DTNASC', 'GESTACAO', 'GRAVIDEZ', 'ESCMAE', 'IDADEPAI']]
-    sinasc = sinasc.reset_index(drop=True)
-
-    sinasc.to_csv(f'./input/SINASC_RO_2019_{month}.csv', index=False)
-
 def plota_pivot_table(df, value, index, func, ylabel, xlabel, opcao='nada'):
     if opcao == 'nada':
         pd.pivot_table(df, values=value, index=index,
@@ -45,10 +29,14 @@ def plota_pivot_table(df, value, index, func, ylabel, xlabel, opcao='nada'):
     st.pyplot(fig=plt)
     return None
 
+
 def plota_variaveis():
     #MonthlyAnalysis(mes) # cria o dataset a partir de SINASC_RO_2019.csv
 
-    st.write('# Análise SINASC')
+    st.markdown("# Análise SINASC")
+    st.write('Aqui temos uma análise do dataset ```SINASC_RO_2019.csv``` onde temos informações sobre os nascimentos de bebê em Rondônia no ano de 2019.')
+    st.write('Dentro desse arquivo temos também informações sobre a mãe e o pai das crianças nascidas.')
+    st.write('Para uma melhor visualização dos períodos de tempo, selecione as datas ao lado.')
 
     sinasc = pd.read_csv(path_to_file)
     sinasc.DTNASC = pd.to_datetime(sinasc.DTNASC)
@@ -66,6 +54,10 @@ def plota_variaveis():
     st.sidebar.write('Data final = ',data_final)
 
     sinasc = sinasc[(sinasc.DTNASC <= data_final) & (sinasc.DTNASC >= data_inicial)]
+
+    if st.checkbox('Mostrar dataset'):
+        st.subheader('Dataset')
+        st.write(sinasc.head())
 
     st.write('#### Quantidade de nascimentos de acordo com a data')
     plota_pivot_table(sinasc, 'IDADEMAE', 'DTNASC', 'count', 'quantidade de nascimento', 'data de nascimento')
