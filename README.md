@@ -16,6 +16,10 @@
   <li> Módulo 11 - Árvores de regressão </li>
   <li> Módulo 12 - Árvores I (regressão com Patsy) </li>
   <li> Módulo 13 - Regressão II </li>
+  <li> Módulo 14 - Scripting</li>
+  <li> Módulo 15 - Streamlit I</li>
+  <li> Módulo 16 - Pandas avançado</li>
+  <li> Módulo 17 - Árvores II (classificação) </li>
 </p>
 
 
