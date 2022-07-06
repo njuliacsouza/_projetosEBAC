@@ -8,6 +8,10 @@ st.set_page_config(page_title='SINASC Rondônia',
                     page_icon='https://img.freepik.com/vetores-gratis/bebe-dos-desenhos-animados-dormindo-em-uma-nuvem_61878-363.jpg'
                 )
 
+from pathlib import Path
+
+path_to_file = Path(__file__).parents[0] / 'SINASC_RO_2019.csv'
+
 meses = ['JAN']
 
 months = {
@@ -19,7 +23,7 @@ months = {
 
 def MonthlyAnalysis(month: str):
     print(month)
-    sinasc = pd.read_csv('SINASC_RO_2019.csv', parse_dates=['DTNASC'])
+    sinasc = pd.read_csv(path_to_file, parse_dates=['DTNASC'])
     sinasc = sinasc[sinasc['DTNASC'].dt.month == months[month]]
     sinasc = sinasc[['IDADEMAE', 'SEXO', 'APGAR1', 'APGAR5', 'PESO', 'CONSULTAS', 'DTNASC', 'GESTACAO', 'GRAVIDEZ', 'ESCMAE', 'IDADEPAI']]
     sinasc = sinasc.reset_index(drop=True)
@@ -46,7 +50,7 @@ def plota_variaveis():
 
     st.write('# Análise SINASC')
 
-    sinasc = pd.read_csv(f'SINASC_RO_2019.csv')
+    sinasc = pd.read_csv(path_to_file)
     sinasc.DTNASC = pd.to_datetime(sinasc.DTNASC)
     
     min_data = sinasc.DTNASC.min()
