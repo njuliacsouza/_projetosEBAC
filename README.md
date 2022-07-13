@@ -20,6 +20,7 @@
   <li> Módulo 15 - Streamlit I</li>
   <li> Módulo 16 - Pandas avançado</li>
   <li> Módulo 17 - Árvores II (classificação) </li>
+  <li> Módulo 18 - Regressão Logística I </li>
 </p>
 
 
