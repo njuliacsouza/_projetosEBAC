@@ -22,6 +22,7 @@
   <li> Módulo 17 - Árvores II (classificação) </li>
   <li> Módulo 18 - Regressão Logística I </li>
   <li> Módulo 19 - Streamlit II </li>
+  <li> Módulo 20 - Markdown/Terminal </li>
 </p>
 
 
