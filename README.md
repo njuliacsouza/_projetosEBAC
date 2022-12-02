@@ -1,5 +1,9 @@
 <h1 align='center'> Atividades para Cursos EBAC </h1>
 
+<h2> Python </h2>
+<p>
+  <li> Projeto Final
+</p>
 
 <h2> Profissão: Cientista de Dados </h2>
 <p>
