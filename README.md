@@ -27,6 +27,10 @@
   <li> Módulo 18 - Regressão Logística I </li>
   <li> Módulo 19 - Streamlit II </li>
   <li> Módulo 20 - Markdown/Terminal </li>
+  <li> Módulo 21 - SQL </li>
+  <li> Módulo 25 - Cálculo </li>
+  <li> Módulo 26 - Algelin </li>
+  <li> Módulo 30 - Hierárquico/Aglomerativos </li>
 </p>
 
 
