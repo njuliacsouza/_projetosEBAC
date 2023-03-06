@@ -1,4 +1,4 @@
-1. Cite 5 diferenças entre o AdaBoost e o GBM.
+1. Segue 5 diferenças entre o AdaBoost e o GBM.
 
     - O AdaBoost é uma floresta de stumps e o GBM de stumps
     - no Adaboos o primeiro passo é um stump, no GBA o primeiro passo é a média do Y
@@ -6,21 +6,16 @@
     - o AdaBoost utiliza a função de perda (*loss function*) exponencial que pode tornar o modelo sensível a **outlier**, enquanto o GBM pode utilizar qualquer *loss function*.
     - o GBM pode ser utlizado para resolver problemas diferenciáveis enquanto o AdaBoost foi criado para resolver problemas binários.
 
-2. Acesse o link Scikit-learn – GBM, leia a explicação
-(traduza se for preciso) e crie um jupyter notebook
-contendo o exemplo de classificação e de regressão
-do GBM. 
+2. Notebook:
     - https://github.com/mjuliacsouza/_projetosEBAC/blob/main/Atividade_Curso-Ciencia_de_Dados/Atividade_Modulo_24/Tarefa%202%20-%20Módulo%2024.ipynb
 
-3. Cite 5 Hyperparametros importantes no GBM.
+3. Segue 5 Hyperparametros importantes no GBM.
     - loss: determina a *loss function*
     - learning_rate
     - n_estimators
     - subsamples
     - criterion
 
-5. Acessando o artigo do Jerome Friedman (Stochastic) e
-pensando no nome dado ao Stochastic GBM, qual é a
-maior diferença entre os dois algoritmos?
+5. A diferença entre o algoritmo GBM e o Stochastic GBM
 
     - O algoritmo introduz termos aleatórios ao modelo de GBM, levando a formação de um modelo híbrido bagging-boosting, uma subamostra selecionada aleatoriamente é usada, em vez da amostra completa, para ajustar o "base learner".
