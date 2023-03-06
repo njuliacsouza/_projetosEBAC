@@ -28,6 +28,8 @@
   <li> Módulo 19 - Streamlit II </li>
   <li> Módulo 20 - Markdown/Terminal </li>
   <li> Módulo 21 - SQL </li>
+  <li> Módulo 23 - Combinação de modelos I </li>
+  <li> Módulo 24 - Combinação de modelos II </li>
   <li> Módulo 25 - Cálculo </li>
   <li> Módulo 26 - Algelin </li>
   <li> Módulo 30 - Hierárquico/Aglomerativos </li>
