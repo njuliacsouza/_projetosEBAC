@@ -12,7 +12,11 @@ def main():
                        layout="wide",
                        initial_sidebar_state="expanded", 
                        )
+    st.write("# Bank Telemarketing Analysis")
     st.markdown("---")
+    
+    image = Image.open('img/bank_icon.png')
+    st.sidebar.image(image)
     
 if __name__ == '__main__':
     main()
