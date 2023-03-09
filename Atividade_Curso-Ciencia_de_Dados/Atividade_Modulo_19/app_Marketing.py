@@ -34,7 +34,7 @@ def main():
     st.markdown("---")
     
     image = Image.open('img/bank_icon.png')
-    st.sidebar.image(image,clamp=True, width=100)
+    st.sidebar.image(image,clamp=True)
     st.sidebar.write('## Filters')
     
     bank_raw = load_data('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv')
