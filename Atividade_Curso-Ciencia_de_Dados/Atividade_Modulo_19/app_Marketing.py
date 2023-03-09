@@ -126,15 +126,42 @@ def main():
     
     ## Plots
     
+    ### Plot of y
+    st.write('## Distribution of response column')
+      
+    fig = make_subplots(1,2)
+
+    bank_raw_target_perc = bank_raw['y'].value_counts(normalize = True).to_frame()*100
+    bank_raw_target_perc = bank_raw_target_perc.sort_index()
+    
+    fig.add_trace(go.Bar(x = bank_raw_target_perc.index.values, 
+                         y = bank_raw_target_perc['y'].values,
+                         name='Original data'
+                         ))
+    
+    bank_target_perc = bank['y'].value_counts(normalize = True).to_frame()*100
+    bank_target_perc = bank_target_perc.sort_index()
+    fig.add_trace(go.Bar(x = bank_target_perc.index.values, 
+                         y = bank_target_perc['y'].values,
+                         name='Filtered data'
+                         ))
+    fig.update_layout(title_text="Proportion of acceptance",
+                  showlegend=True
+                 )
+    
+    st.plotly_chart(fig, use_container_width=True)
+    
+    ### Plot of numerical columns
     st.write('## Distribution of numerical atributes')
     selected_column = st.selectbox('Column', bank.select_dtypes('number').columns)
     
     fig = go.Figure()
-    fig.add_trace(px.histogram(bank_raw[[selected_column]]))
-    fig.add_trace(px.histogram(bank[[selected_column]]))
+    fig.add_trace(go.Histogram(x=bank_raw[selected_column], name='Original dataset'))
+    fig.add_trace(go.Histogram(x=bank[selected_column], name='Filtered dataset'))
     
     st.plotly_chart(fig, use_container_width=True)
     
+    ### Plot of categorical columns
     st.write('## Distribution of categorical atributes')
     selected_column_cat = st.selectbox('Column', bank.select_dtypes('object').drop('y', axis=1).columns)
     
@@ -160,29 +187,7 @@ def main():
     
     st.plotly_chart(fig, use_container_width=True)
     
-    st.write('## Distribution of response column')
-      
-    fig = make_subplots(1,2)
-
-    bank_raw_target_perc = bank_raw['y'].value_counts(normalize = True).to_frame()*100
-    bank_raw_target_perc = bank_raw_target_perc.sort_index()
     
-    fig.add_trace(go.Bar(x = bank_raw_target_perc.index.values, 
-                         y = bank_raw_target_perc['y'].values,
-                         name='Original data'
-                         ))
-    
-    bank_target_perc = bank['y'].value_counts(normalize = True).to_frame()*100
-    bank_target_perc = bank_target_perc.sort_index()
-    fig.add_trace(go.Bar(x = bank_target_perc.index.values, 
-                         y = bank_target_perc['y'].values,
-                         name='Filtered data'
-                         ))
-    fig.update_layout(title_text="Proportion of acceptance",
-                  showlegend=True
-                 )
-    
-    st.plotly_chart(fig, use_container_width=True)
     
 if __name__ == '__main__':
     main()
