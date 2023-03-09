@@ -82,8 +82,8 @@ def main():
     
     bank_target_perc = bank.y.value_counts(normalize = True).to_frame()*100
     bank_target_perc = bank_target_perc.sort_index()
-    fig.add_trace(go.Bar(x = bank_raw_target_perc.index.values, 
-                         y = bank_raw_target_perc.y.values,
+    fig.add_trace(go.Bar(x = bank_target_perc.index.values, 
+                         y = bank_target_perc.y.values,
                          name='Filtered data'
                          ))
     fig.update_layout(title_text="Proportion of acceptance",
