@@ -22,6 +22,7 @@ def main():
     
     image = Image.open('img/bank_icon.png')
     st.sidebar.image(image,clamp=True, width=100)
+    st.sidebar.write('## Filters')
     
     bank_raw = pd.read_csv('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv', sep=';')
     bank_raw.sort_values(by='age', inplace=True)
@@ -56,11 +57,36 @@ def main():
                                  options = list(bank.education.unique()),
                                  default=None
                                     )
+    default = st.sidebar.multiselect(label = 'Default filter',
+                                 options = list(bank.default.unique()),
+                                 default=None
+                                    )
+    housing = st.sidebar.multiselect(label = 'Education filter',
+                                 options = list(bank.housing.unique()),
+                                 default=None
+                                    )
+    loan = st.sidebar.multiselect(label = 'Loan filter',
+                                 options = list(bank.loan.unique()),
+                                 default=None
+                                    )
+    contact = st.sidebar.multiselect(label =  'Contact filter',
+                                 options = list(bank.contact.unique()),
+                                 default=None
+                                    )
+    month = st.sidebar.multiselect(label = 'Month filter',
+                                 options = list(bank.month.unique()),
+                                 default=None
+                                    )
 
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
     bank = bank.apply(lambda i: i.job.isin(job) if job else i, axis=1).reset_index(drop=True)
     bank = bank.apply(lambda i: i.marital.isin(marital) if marital else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.education.isin(marital) if education else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.education.isin(education) if education else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.default.isin(default) if default else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.housing.isin(housing) if housing else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.loan.isin(loan) if loan else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.contact.isin(contact) if contact else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.month.isin(month) if month else i, axis=1).reset_index(drop=True)
     
     show_filtered_dataset = st.checkbox('Show filtered dataset')
 
