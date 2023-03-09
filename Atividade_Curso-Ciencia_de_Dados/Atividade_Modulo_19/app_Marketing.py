@@ -115,12 +115,10 @@ def main():
         )
     
     
-    show_filtered_dataset = st.checkbox('Show filtered dataset')
-
-    if show_filtered_dataset:  
-        st.write('### Filtered Dataset')
-        st.write(f"We have {len(bank)} instances")
-        st.write(bank, use_container_width=True)
+    
+    st.write('### Filtered Dataset')
+    st.write(f"We have {len(bank)} instances")
+    st.write(bank, use_container_width=True)
     
     st.markdown('---')
     
