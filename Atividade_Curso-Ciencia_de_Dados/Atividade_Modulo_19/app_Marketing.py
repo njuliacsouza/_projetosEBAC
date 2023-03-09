@@ -40,8 +40,14 @@ def main():
                         max_value = max_age, 
                         value = (min_age, max_age),
                         step = 1)
+    jobs = ['<select>'] + list(bank.job.unique())
+    job = st.sidebar.selectbox(label = 'Job filter',
+                                     options = jobs,
+                                    )
 
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
+    if job != '<select>':
+        bank = bank[bank.job == job]
     
     show_filtered_dataset = st.checkbox('Show filtered dataset')
 
@@ -63,7 +69,7 @@ def main():
                 data = bank_raw_target_perc, 
                 ax = ax[0])
     ax[0].bar_label(ax[0].containers[0])
-    ax[0].set_title('Dados brutos',
+    ax[0].set_title('Original data',
                     fontweight ="bold")
     
     bank_target_perc = bank.y.value_counts(normalize = True).to_frame()*100
@@ -73,7 +79,7 @@ def main():
                 data = bank_target_perc, 
                 ax = ax[1])
     ax[1].bar_label(ax[1].containers[0])
-    ax[1].set_title('Dados filtrados',
+    ax[1].set_title('Filtered data',
                     fontweight ="bold")
     
     st.write('## Proportion of acceptance')
