@@ -77,16 +77,16 @@ def main():
                                  options = list(bank.month.unique()),
                                  default=None
                                     )
-
+    
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
-    bank = bank.apply(lambda i: i.job.isin(job) if job else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.marital.isin(marital) if marital else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.education.isin(education) if education else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.default.isin(default) if default else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.housing.isin(housing) if housing else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.loan.isin(loan) if loan else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.contact.isin(contact) if contact else i, axis=1).reset_index(drop=True)
-    bank = bank.apply(lambda i: i.month.isin(month) if month else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i['job'] in job if job != [] else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.marital in marital if marital else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.education in education if education else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.default in default if default else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.housing in housing if housing else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.loan in loan if loan else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.contact in contact if contact else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.month in month if month else i, axis=1).reset_index(drop=True)
     
     show_filtered_dataset = st.checkbox('Show filtered dataset')
 
