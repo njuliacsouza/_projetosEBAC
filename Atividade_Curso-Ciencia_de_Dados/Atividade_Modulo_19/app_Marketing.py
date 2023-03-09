@@ -44,6 +44,9 @@ def main():
                        )
     st.write("# Telemarketing Analysis")
     st.write("Here we're going to make an analysis over Banking Telemarketing data.")
+    st.write('### Summary')
+    st.write('- Dataset')
+    st.write('- Distribution plots')
     st.markdown("---")
     
     image = Image.open('img/bank_icon.png')
@@ -142,22 +145,25 @@ def main():
 
 
         st.write('### Filtered Dataset')
+        st.write(f"We have {len(bank)} instances")
+        st.write(bank, use_container_width=True)
+        
         csv_filtered = df_toString(bank)
         st.download_button(
-            label="Download data as CSV",
+            label="Download filtered data as CSV",
             data=csv_filtered,
             file_name='df_csv.csv',
             mime='text/csv',
         )
-        st.write(f"We have {len(bank)} instances")
-        st.write(bank, use_container_width=True)
+        
 
         st.markdown('---')
 
         ## Plots
 
         ### Plot of y
-        st.write('## Distribution of response column')
+        st.write('## Distritution plots')
+        st.write('### Distribution of response column')
 
         fig = make_subplots(1,2)
 
@@ -182,7 +188,7 @@ def main():
         st.plotly_chart(fig, use_container_width=True)
 
         ### Plot of numerical columns
-        st.write('## Distribution of numerical atributes')
+        st.write('### Distribution of numerical atributes')
         selected_column = st.selectbox('Column', bank.select_dtypes('number').columns)
 
         fig = go.Figure()
@@ -192,7 +198,7 @@ def main():
         st.plotly_chart(fig, use_container_width=True)
 
         ### Plot of categorical columns
-        st.write('## Distribution of categorical atributes')
+        st.write('### Distribution of categorical atributes')
         selected_column_cat = st.selectbox('Column', bank.select_dtypes('object').drop('y', axis=1).columns)
 
         fig = go.Figure()
