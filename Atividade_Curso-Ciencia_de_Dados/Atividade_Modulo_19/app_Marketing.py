@@ -3,6 +3,10 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from plotly.subplots import make_subplots
+import plotly.express as px
+import plotly.graph_objects as go
+
 from PIL import Image
 import streamlit as st
 
@@ -67,32 +71,27 @@ def main():
         
     st.markdown("---")
 
-    # # PLOTS    
-    fig, ax = plt.subplots(1, 2, figsize = (5,3))
+    ## PLOTS    
+    fig = make_subplots(1,2)
 
     bank_raw_target_perc = bank_raw.y.value_counts(normalize = True).to_frame()*100
     bank_raw_target_perc = bank_raw_target_perc.sort_index()
-    sns.barplot(x = bank_raw_target_perc.index, 
-                y = 'y',
-                data = bank_raw_target_perc, 
-                ax = ax[0])
-    ax[0].bar_label(ax[0].containers[0])
-    ax[0].set_title('Original data',
-                    fontweight ="bold")
-    
+    st.write(bank_raw_target_perc)
+    fig.add_trace(go.bar(bank_raw_target_perc,
+                         x = bank_raw_target_perc.index, 
+                         y = 'y',
+                         row=0, col=0))
+    '''
     bank_target_perc = bank.y.value_counts(normalize = True).to_frame()*100
     bank_target_perc = bank_target_perc.sort_index()
-    sns.barplot(x = bank_target_perc.index, 
-                y = 'y', 
-                data = bank_target_perc, 
-                ax = ax[1])
-    ax[1].bar_label(ax[1].containers[0])
-    ax[1].set_title('Filtered data',
-                    fontweight ="bold")
-    
+    fig.add_trace(go.bar(bank_target_perc,
+                         x = bank_target_perc.index, 
+                         y = 'y', 
+                         row=0,col=1))
+    '''
     st.write('## Proportion of acceptance')
     
-    st.pyplot(plt)
+    #st.plotly_chart(fig.show(), use_container_width=True)
     
 if __name__ == '__main__':
     main()
