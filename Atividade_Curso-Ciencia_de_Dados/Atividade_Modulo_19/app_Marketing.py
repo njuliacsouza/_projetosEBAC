@@ -17,7 +17,7 @@ def main():
     st.markdown("---")
     
     image = Image.open('img/bank_icon.png')
-    st.sidebar.image(image,clamp=True, width=200)
+    st.sidebar.image(image,clamp=True, width=100)
     
     bank_raw = pd.read_csv('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv', sep=';')
     bank_raw.sort_values(by='age', inplace=True)
@@ -48,10 +48,15 @@ def main():
                                  options = list(bank.marital.unique()),
                                  default=None
                                     )
+    education = st.sidebar.multiselect(label = 'Education filter',
+                                 options = list(bank.education.unique()),
+                                 default=None
+                                    )
 
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
     bank = bank.apply(lambda i: i.job.isin(job) if job else i, axis=1).reset_index(drop=True)
     bank = bank.apply(lambda i: i.marital.isin(marital) if marital else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.education.isin(marital) if education else i, axis=1).reset_index(drop=True)
     
     show_filtered_dataset = st.checkbox('Show filtered dataset')
 
