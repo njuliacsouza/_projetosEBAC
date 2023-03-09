@@ -13,19 +13,20 @@ def main():
                        initial_sidebar_state="expanded", 
                        )
     st.write("# Telemarketing Analysis")
+    st.write("Here we're going to make an analysis over Banking Telemarketing data.")
     st.markdown("---")
     
     image = Image.open('img/bank_icon.png')
     st.sidebar.image(image,clamp=True, width=200)
     
     bank_raw = pd.read_csv('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv', sep=';')
-
+    bank_raw.sort_values(by='age', inplace=True)
     bank = bank_raw.copy()
-    agree = st.checkbox('Show original dataset')
+    show_original_dataset = st.checkbox('Show original dataset')
 
-    if agree:
+    if show_original_dataset:
         st.write('## Original Dataset')
-        st.write(bank_raw.head())
+        st.write(bank_raw, use_container_width=True)
 
     # IDADES
     max_age = int(bank.age.max())
@@ -41,8 +42,12 @@ def main():
 
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
     
-    st.write('## Filtered Dataset')
-    st.write(bank.head())
+    show_filtered_dataset = st.checkbox('Show filtered dataset')
+
+    if show_filtered_dataset:  
+        st.write('## Filtered Dataset')
+        st.write(bank, use_container_width=True)
+        
     st.markdown("---")
 
     # # PLOTS    
