@@ -22,30 +22,33 @@ def main():
     bank_raw = pd.read_csv('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv', sep=';')
     bank_raw.sort_values(by='age', inplace=True)
     bank = bank_raw.copy()
+    
+    st.write("## Dataset")
+    
     show_original_dataset = st.checkbox('Show original dataset')
 
     if show_original_dataset:
-        st.write('## Original Dataset')
+        st.write('### Original Dataset')
+        st.write(f"We have {len(bank_raw)} instances")
         st.write(bank_raw, use_container_width=True)
 
     # IDADES
     max_age = int(bank.age.max())
     min_age = int(bank.age.min())
-    idades = st.sidebar.slider(label='Idade', 
+    idades = st.sidebar.slider(label='Age filter', 
                         min_value = min_age,
                         max_value = max_age, 
                         value = (min_age, max_age),
                         step = 1)
-    st.sidebar.write('Ages:', idades)
-    st.sidebar.write('Min age:', idades[0])
-    st.sidebar.write('Max age:', idades[1])
 
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
     
     show_filtered_dataset = st.checkbox('Show filtered dataset')
 
     if show_filtered_dataset:  
-        st.write('## Filtered Dataset')
+        st.write('### Filtered Dataset')
+        st.write(f"We have {len(bank)} instances")
+        st.write(f"Filtering ages from {idades[0]} to {idades[1]}")
         st.write(bank, use_container_width=True)
         
     st.markdown("---")
@@ -73,7 +76,7 @@ def main():
     ax[1].set_title('Dados filtrados',
                     fontweight ="bold")
     
-    st.write('## Proporção de aceite')
+    st.write('## Proportion of acceptance')
 
     st.pyplot(plt)
     
