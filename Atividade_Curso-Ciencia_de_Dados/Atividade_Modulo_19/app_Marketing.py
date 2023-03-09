@@ -11,6 +11,11 @@ from PIL import Image
 import streamlit as st
 
 
+@st.cache_data
+def load_data(file_data):
+    return pd.read_csv(file_data, sep=';')
+
+
 def multiselect_filter(relatorio, col, selecionados):
     if 'all' in selecionados:
         return relatorio
@@ -32,7 +37,7 @@ def main():
     st.sidebar.image(image,clamp=True, width=100)
     st.sidebar.write('## Filters')
     
-    bank_raw = pd.read_csv('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv', sep=';')
+    bank_raw = load_data('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv', sep=';')
     bank_raw.sort_values(by='age', inplace=True)
     bank = bank_raw.copy()
     
