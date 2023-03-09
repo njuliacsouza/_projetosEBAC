@@ -40,21 +40,24 @@ def main():
                         max_value = max_age, 
                         value = (min_age, max_age),
                         step = 1)
-    jobs = ['<select>'] + list(bank.job.unique())
-    job = st.sidebar.selectbox(label = 'Job filter',
-                                     options = jobs,
+    job = st.sidebar.multiselect(label = 'Job filter',
+                                 options = list(bank.job.unique()),
+                                 default=None
+                                    )
+    marital = st.sidebar.multiselect(label = 'Marital filter',
+                                 options = list(bank.marital.unique()),
+                                 default=None
                                     )
 
     bank = bank[(bank['age'] >= idades[0]) & (bank['age'] <= idades[1])]
-    if job != '<select>':
-        bank = bank[bank.job == job]
+    bank = bank.apply(lambda i: i.job.isin(job) if job else i, axis=1).reset_index(drop=True)
+    bank = bank.apply(lambda i: i.marital.isin(marital) if marital else i, axis=1).reset_index(drop=True)
     
     show_filtered_dataset = st.checkbox('Show filtered dataset')
 
     if show_filtered_dataset:  
         st.write('### Filtered Dataset')
         st.write(f"We have {len(bank)} instances")
-        st.write(f"Filtering ages from {idades[0]} to {idades[1]}")
         st.write(bank, use_container_width=True)
         
     st.markdown("---")
@@ -83,7 +86,7 @@ def main():
                     fontweight ="bold")
     
     st.write('## Proportion of acceptance')
-
+    
     st.pyplot(plt)
     
 if __name__ == '__main__':
