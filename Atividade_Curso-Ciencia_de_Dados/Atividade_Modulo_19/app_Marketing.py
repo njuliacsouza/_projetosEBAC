@@ -68,27 +68,27 @@ def main():
         st.write('### Filtered Dataset')
         st.write(f"We have {len(bank)} instances")
         st.write(bank, use_container_width=True)
-        
-    st.markdown("---")
 
     ## PLOTS    
     fig = make_subplots(1,2)
 
     bank_raw_target_perc = bank_raw.y.value_counts(normalize = True).to_frame()*100
     bank_raw_target_perc = bank_raw_target_perc.sort_index()
-    st.write(bank_raw_target_perc.index)
-    fig.add_trace(go.Bar(x = bank_raw_target_perc.index, 
-                         y = bank_raw_target_perc.y,
-                         row=0, col=0))
-    '''
+    
+    fig.add_trace(go.Bar(x = bank_raw_target_perc.index.values, 
+                         y = bank_raw_target_perc.y.values,
+                         name='Original data'
+                         ))
+    
     bank_target_perc = bank.y.value_counts(normalize = True).to_frame()*100
     bank_target_perc = bank_target_perc.sort_index()
-    fig.add_trace(go.Bar(bank_target_perc,
-                         x = bank_target_perc.index, 
-                         y = 'y', 
-                         row=0,col=1))
-    '''
-    st.write('## Proportion of acceptance')
+    fig.add_trace(go.Bar(x = bank_raw_target_perc.index.values, 
+                         y = bank_raw_target_perc.y.values,
+                         name='Filtered data'
+                         ))
+    fig.update_layout(title_text="Proportion of acceptance",
+                  showlegend=True
+                 )
     
     st.plotly_chart(fig, use_container_width=True)
     
