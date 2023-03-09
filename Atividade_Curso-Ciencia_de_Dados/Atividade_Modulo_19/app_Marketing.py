@@ -16,13 +16,25 @@ import streamlit as st
 def load_data(file_data):
     return pd.read_csv(file_data, sep=';')
 
-
+@st.cache(allow_output_mutation=True)
 def multiselect_filter(relatorio, col, selecionados):
     if 'all' in selecionados:
         return relatorio
     else:
         return relatorio[relatorio[col].isin(selecionados)].reset_index(drop=True)
 
+@st.cache_data
+def df_toString(df):
+    return df.to_csv(index=False)
+
+@st.cache_data
+def to_excel(df):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Sheet1')
+    writer.save()
+    processed_data = output.getvalue()
+    return processed_data
     
 def main():
     st.set_page_config(page_title="Telemarketing Analysis",
@@ -42,6 +54,7 @@ def main():
     if (data_file_1 is not None):
         start = timeit.default_timer()
         bank_raw = load_data(data_file_1)
+        csv = df_toString(bank_raw)
         
         #st.sidebar.write('Time: ', timeit.default_timer() - start)  
         bank = bank_raw.copy()
@@ -49,7 +62,7 @@ def main():
         st.write("## Dataset")
 
         show_original_dataset = st.checkbox('Show original dataset')
-
+        
         if show_original_dataset:
             st.write('### Original Dataset')
             st.write(f"We have {len(bank_raw)} instances")
@@ -129,6 +142,13 @@ def main():
 
 
         st.write('### Filtered Dataset')
+        csv_filtered = df_toString(bank)
+        st.download_button(
+            label="Download data as CSV",
+            data=csv_filtered,
+            file_name='df_csv.csv',
+            mime='text/csv',
+        )
         st.write(f"We have {len(bank)} instances")
         st.write(bank, use_container_width=True)
 
