@@ -14,7 +14,7 @@ def main():
     st.markdown("---")
     
     start = timeit.default_timer()
-    bank_raw = load_data('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full.csv')
+    bank_raw = load_data('../../../_EBAC/Material_de_Apoio - Data Science/Material_de_Apoio - Modulo 19/data/input/bank-additional-full-40.csv')
 
     st.write('Time: ', timeit.default_timer() - start)  
 
