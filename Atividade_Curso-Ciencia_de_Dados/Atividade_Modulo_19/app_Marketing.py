@@ -17,6 +17,7 @@ def multiselect_filter(relatorio, col, selecionados):
     else:
         return relatorio[relatorio[col].isin(selecionados)].reset_index(drop=True)
 
+    
 def main():
     st.set_page_config(page_title="Telemarketing Analysis",
                        page_icon = "img/telemarketing_icon.png",
