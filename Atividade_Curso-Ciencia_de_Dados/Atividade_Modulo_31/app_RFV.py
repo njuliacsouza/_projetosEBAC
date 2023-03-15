@@ -5,13 +5,12 @@ import numpy             as np
 from datetime            import datetime
 from PIL                 import Image
 from io                  import BytesIO
-from Xlsxwriter import Workbook
 
-@st.cache
+@st.cache_data
 def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
 
-@st.cache
+@st.cache_data
 def to_excel(df):
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
