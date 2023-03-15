@@ -5,6 +5,7 @@ import numpy             as np
 from datetime            import datetime
 from PIL                 import Image
 from io                  import BytesIO
+from Xlsxwriter import Workbook
 
 @st.cache
 def convert_df(df):
