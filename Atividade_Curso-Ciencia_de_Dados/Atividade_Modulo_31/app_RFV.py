@@ -10,7 +10,6 @@ from io                  import BytesIO
 def convert_df(df):
     return df.to_csv(index=False).encode('utf-8')
 
-# Função para converter o df para excel
 @st.cache
 def to_excel(df):
     output = BytesIO()
@@ -52,15 +51,12 @@ def freq_val_class(x, fv, q_dict):
     else:
         return 'A'
 
-# Função principal da aplicação
 def main():
-    # Configuração inicial da página da aplicação
     st.set_page_config(page_title = 'RFV', \
         layout="wide",
         initial_sidebar_state='expanded'
     )
 
-    # Título principal da aplicação
     st.write("""# RFV
 
     RFV significa recência, frequência, valor e é utilizado para segmentação de clientes baseado no comportamento 
@@ -77,15 +73,12 @@ def main():
     """)
     st.markdown("---")
     
-    # Apresenta a imagem na barra lateral da aplicação
-    # image = Image.open("Bank-Branding.jpg")
-    # st.sidebar.image(image)
+    image = Image.open("bank-icon.png")
+    st.sidebar.image(image)
 
-    # Botão para carregar arquivo na aplicação
     st.sidebar.write("## Suba o arquivo")
     data_file_1 = st.sidebar.file_uploader("Bank marketing data", type = ['csv','xlsx'])
 
-    # Verifica se há conteúdo carregado na aplicação
     if (data_file_1 is not None):
         df_compras = pd.read_csv(data_file_1, infer_datetime_format=True, parse_dates=['DiaCompra'])
 
@@ -160,8 +153,6 @@ def main():
         df_RFV['acoes de marketing/crm'] = df_RFV['RFV_Score'].map(dict_acoes)
         st.write(df_RFV.head())
 
-
-        # df_RFV.to_excel('./auxiliar/output/RFV_.xlsx')
         df_xlsx = to_excel(df_RFV)
         st.download_button(label='📥 Download',
                             data=df_xlsx ,
