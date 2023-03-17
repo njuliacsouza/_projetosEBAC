@@ -34,6 +34,11 @@
   <li> Módulo 25 - Cálculo </li>
   <li> Módulo 26 - Algelin </li>
   <li> Módulo 30 - Hierárquico/Aglomerativos </li>
+  <li> Módulo 31 - Streamlit V/FVR </li>
+  <li> Módulo 32 - Probabilidade </li>
+  <li> Módulo 33 - Inferência </li>
+  <li> Módulo 34 - Regressão III </li>
+  <li> Módulo 35 - Regressão IV </li>
 </p>
 
 
